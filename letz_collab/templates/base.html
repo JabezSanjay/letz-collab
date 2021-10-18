@@ -1,5 +1,18 @@
-<h1>This is Navbar</h1>
+{% load static %}
 
-{% block content %} {% endblock content %}
+<!DOCTYPE html>
+<html lang="en">
+  {% include './includes/imports/cssImports.html' %}
+  <body>
+    <!-- header start-->
+    {% include './includes/src/components/header.html' %}
+    <!-- header end-->
 
-<h1>This is footer</h1>
+    {% block content %} {% endblock content %}
+
+    <!-- footer -->
+    {% include './includes/src/components/footer.html' %}
+    <!-- footer ends -->
+    {% include './includes/imports/jsImports.html' %}
+  </body>
+</html>
