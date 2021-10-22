@@ -1,62 +1,69 @@
 {% load static %}
 
-<header class="header">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 header-info">
-        <a href="mailto:info@ytubers.com" class="mr-3">info@ytubers.com</a>
-        <span>Call at: +91 9898989898 </span>
-      </div>
-      <div class="header-buttons col-md-6 d-flex justify-content-end">
-        <a class="btn btn-accent mr-3" href="/login.html">Signin</a>
-        <a class="btn btn-accent" href="/register.html">SignUp</a>
-      </div>
+<header class="text-gray-600 body-font">
+  <div
+    class="
+      container
+      mx-auto
+      flex flex-wrap
+      p-5
+      flex-col
+      md:flex-row
+      items-center
+    "
+  >
+    <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
+      <a class="mr-5 hover:text-gray-900">First Link</a>
+      <a class="mr-5 hover:text-gray-900">Second Link</a>
+      <a class="mr-5 hover:text-gray-900">Third Link</a>
+      <a class="hover:text-gray-900">Fourth Link</a>
+    </nav>
+    <a
+      class="
+        flex
+        order-first
+        lg:order-none lg:w-1/5
+        title-font
+        font-medium
+        items-center
+        text-gray-900
+        lg:items-center lg:justify-center
+        mb-4
+        md:mb-0
+      "
+    >
+      <span class="ml-3 text-xl">Letz Collab</span>
+    </a>
+    <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
+      <button
+        class="
+          inline-flex
+          items-center
+          bg-gray-100
+          border-0
+          py-1
+          px-3
+          focus:outline-none
+          hover:bg-gray-200
+          rounded
+          text-base
+          mt-4
+          md:mt-0
+        "
+      >
+        Button
+        <svg
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          class="w-4 h-4 ml-1"
+          viewBox="0 0 24 24"
+        >
+          <path d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+      </button>
     </div>
   </div>
 </header>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" href="#">
-      <img
-        src="{% static './assets/images/logo.png' %}"
-        alt=""
-        width="140"
-        height="30"
-        alt=""
-        loading="lazy"
-      />
-    </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="/index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/aboutus.html">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/tubers.html">Tubers</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Services</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/contactus.html">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<!-- header end -->
