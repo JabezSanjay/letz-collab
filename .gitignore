@@ -1,2 +1,4 @@
 letz_collab/static
 .prettierignore
+letz_collab/letz_collab/static/js/node_modules
+letz_collab/letz_collab/static/js/package-lock.json
