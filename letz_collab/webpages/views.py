@@ -1,10 +1,19 @@
 from django.shortcuts import render
+from .models import HomepageBanner
+from .models import TeamMembers
+
 
 # Create your views here.
 
 
 def home(request):
-    return render(request, 'webpages/home.html')
+    homepageBanner = HomepageBanner.objects.all()
+    teamMembers = TeamMembers.objects.all()
+    data = {
+        'homepageBanner': homepageBanner,
+        'teamMembers': teamMembers
+    }
+    return render(request, 'webpages/home.html', data)
 
 
 def about(request):

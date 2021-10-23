@@ -80,8 +80,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'letz_collab',
-        'USER': 'postgres',
-        'PASSWORD': 'root',
+        'USER': 'jabezsanjay',
+        'PASSWORD': '1234',
         'HOST': '127.0.0.1',
     }
 }
