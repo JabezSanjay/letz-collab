@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'youtubers.apps.YoutubersConfig',
     'webpages.apps.WebpagesConfig',
     'jazzmin',
     'django.contrib.admin',
