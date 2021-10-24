@@ -1,0 +1,12 @@
+/* width */
+.scroll-bar::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Handle */
+.scroll-bar::-webkit-scrollbar-thumb {
+  background-color: #5b21b6;
+  border: 4px solid transparent;
+  border-radius: 8px;
+  background-clip: padding-box;
+}

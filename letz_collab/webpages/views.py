@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .models import HomepageBanner
-from .models import TeamMembers
+from .models import HomepageBanner, TeamMembers
+from youtubers.models import Youtuber
 
 
 # Create your views here.
@@ -9,9 +9,15 @@ from .models import TeamMembers
 def home(request):
     homepageBanner = HomepageBanner.objects.all()
     teamMembers = TeamMembers.objects.all()
+    featuredYoutubers = Youtuber.objects.order_by(
+        '-created_at').filter(is_featured=True)
+    latestYoutubers = Youtuber.objects.order_by(
+        '-created_at').filter(is_featured=False)
     data = {
         'homepageBanner': homepageBanner,
-        'teamMembers': teamMembers
+        'teamMembers': teamMembers,
+        'featuredYoutubers': featuredYoutubers,
+        'latestYoutubers': latestYoutubers
     }
     return render(request, 'webpages/home.html', data)
 

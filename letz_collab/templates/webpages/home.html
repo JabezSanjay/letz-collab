@@ -1,5 +1,8 @@
 {% extends 'base.html' %} {% load static %}{% block content %}
 
+
+<!-- Banner Section -->
+
 <section class="banner__section text-gray-600 body-font">
   {% for homepageBannerValues in homepageBanner %}
   <div
@@ -64,7 +67,202 @@
       />
     </div>
   </div>
+  {% endfor %}
 </section>
+
+<!-- Featured Youtubers Section -->
+
+<section class="featured__section text-gray-600 body-font">
+  <div class="mx-auto w-full md:w-4/5 px-4">
+    <div class="container my-8">
+      <div class="flex justify-between items-center mb-4">
+        <h2
+          class="
+            sm:text-3xl
+            text-2xl
+            font-medium
+            title-font
+            mb-3
+            text-gray-900
+            w-full
+            text-center
+          "
+        >
+          Featured Youtubers
+        </h2>
+      </div>
+      <div
+        id="scrollContainer"
+        class="
+          flex flex-no-wrap
+          overflow-x-scroll
+          scroll-bar
+          scrolling-touch
+          items-start
+         mb-16
+        "
+      >
+      {% for featuredYoutuber in featuredYoutubers %}
+      {% load humanize %}
+        <div class="flex-none p-4 md:w-1/3">
+          <div
+            class="
+              h-full
+              border-2 border-gray-200 border-opacity-60
+              rounded-lg
+              overflow-hidden
+              sm:max-w-md
+              max-w-xs
+            "
+          >
+          <!-- <img class="w-full" src="{{featuredYoutuber.photo}}" alt="Mountain"> -->
+            <img
+              class="lg:h-48 md:h-36 w-full object-cover object-center "
+              src="{{featuredYoutuber.photo}}"
+              alt="blog"
+            />
+            <p
+                  class="
+                    inline-flex
+                    items-center
+                    bg-purple-800
+                    px-3
+                    py-1
+                    text-white
+                  "
+                  >
+                  Featured
+                </p>
+            <div class="p-6">
+              
+             
+              <h1 class="title-font text-lg font-medium text-gray-900 mb-3">
+                {{featuredYoutuber.name}}
+              </h1>
+              <div class="flex items-center flex-wrap">
+                <h2
+                class="
+                  tracking-widest
+                  text-xs
+                  title-font
+                  font-medium
+                  text-gray-400
+                "
+              >
+              {{featuredYoutuber.category}}
+              </h2>
+                <span class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-gray-200">
+                  <svg class="w-4 h-4 ml-3 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>{{featuredYoutuber.subscriber_count |intcomma}} Subs
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Latest Youtubers Section -->
+
+<section class="latest-team__section text-gray-600 body-font">
+  <div class="container px-5 mx-auto">
+    <div class="flex flex-col text-center w-full mb-20 ">
+      <h1
+        class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900"
+      >
+        Recent youtubers
+      </h1>
+     
+    </div>
+    <div class="-mt-16 mb-16 flex justify-center items-center flex-wrap ">
+      
+      
+      {% for latestYoutuber in latestYoutubers %}
+      <div class="p-4 md:w-1/3">
+        <div
+          class="
+            h-full
+            border-2 border-gray-200 border-opacity-60
+            rounded-lg
+            overflow-hidden
+            sm:max-w-md
+            max-w-xs
+          "
+        >
+        <!-- <img class="w-full" src="{{featuredYoutuber.photo}}" alt="Mountain"> -->
+          <img
+            class="lg:h-48 md:h-36 w-full object-cover object-center "
+            src="{{latestYoutuber.photo}}"
+            alt="blog"
+          />
+         
+          <div class="p-6">
+            
+           
+            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">
+              {{latestYoutuber.name}}
+            </h1>
+            <div class="flex items-center flex-wrap">
+              <h2
+              class="
+                tracking-widest
+                text-xs
+                title-font
+                font-medium
+                text-gray-400
+              "
+            >
+            {{latestYoutuber.category}}
+            </h2>
+              <span class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-gray-200">
+                <svg class="w-4 h-4 ml-3 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>{{latestYoutuber.subscriber_count |intcomma}} Subs
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div class="p-4 md:w-1/3  flex justify-center items-center ">
+        <div
+          class="
+            h-full
+            border-2 border-gray-200 border-opacity-60
+            rounded-lg
+            overflow-hidden
+            sm:max-w-md
+            max-w-xs
+            p-6
+          "
+        >
+        <!-- <img class="w-full" src="{{featuredYoutuber.photo}}" alt="Mountain"> -->
+          <img
+            class="lg:h-48 md:h-36 w-full mb-6"
+            src="{% static 'assets/no-data.svg' %}"
+            alt="blog"
+          />
+        
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-center mb-3">
+       No recent youtubers to display!
+      </p>
+         
+        </div>
+      </div>
+      {% endfor %}
+        
+    
+      
+    </div>
+  </div>
+</section>
+
+<!-- Team Introduction Section -->
 
 <section class="team__section text-gray-600 body-font">
   <div class="container px-5 mx-auto">
@@ -78,18 +276,24 @@
         Meet our team of developers who did this product!
       </p>
     </div>
-    <div class="flex flex-wrap -my-10">
+    <div class="flex flex-wrap -my-6">
       {% for teamMember in teamMembers %}
       <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
         <div
-          class="h-full flex items-center border-gray-200 border p-4 rounded-lg"
+          class="
+            h-full
+            flex
+            items-center
+            border-purple-800 border
+            p-4
+            rounded-lg
+          "
         >
           <img
             alt="team"
             class="
               w-16
               h-16
-              bg-gray-100
               object-cover object-center
               flex-shrink-0
               rounded-full
@@ -111,4 +315,7 @@
   </div>
 </section>
 
-{% endfor %} {% endblock content %}
+
+
+
+{% endblock content %}

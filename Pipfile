@@ -9,6 +9,7 @@ django = "*"
 psycopg2-binary = "*"
 psycopg2 = "*"
 django-jazzmin = "*"
+django-ckeditor = "*"
 
 [dev-packages]
 
