@@ -95,11 +95,12 @@
         id="scrollContainer"
         class="
           flex flex-no-wrap
+          justify-start
+          items-center
           overflow-x-scroll
           scroll-bar
           scrolling-touch
-          items-start
-         mb-16
+          mb-16
         "
       >
       {% for featuredYoutuber in featuredYoutubers %}
@@ -161,6 +162,32 @@
             </div>
           </div>
         </div>
+        {% empty %}
+      <div class="p-4 md:w-1/3  flex justify-center items-center ">
+        <div
+          class="
+            h-full
+            border-2 border-gray-200 border-opacity-60
+            rounded-lg
+            overflow-hidden
+            sm:max-w-md
+            max-w-xs
+            p-6
+          "
+        >
+        <!-- <img class="w-full" src="{{featuredYoutuber.photo}}" alt="Mountain"> -->
+          <img
+            class="lg:h-48 md:h-36 w-full mb-6"
+            src="{% static 'assets/no-data.svg' %}"
+            alt="blog"
+          />
+        
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-center mb-3">
+       No recent youtubers to display!
+      </p>
+         
+        </div>
+      </div>
         {% endfor %}
     </div>
   </div>
