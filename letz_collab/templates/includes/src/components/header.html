@@ -14,9 +14,11 @@
     "
   >
     <nav class="flex lg:w-2/5 flex-wrap text-base md:ml-auto cursor-pointer">
-      <a class="mr-5 shover:text-purple-300">Home</a>
-      <a class="mr-5 hover:text-purple-300">About</a>
-      <a class="hover:text-purple-300">Services</a>
+      <a class="mr-5 hover:text-purple-300" href="{% url 'home' %}">Home</a>
+      <a class="mr-5 hover:text-purple-300" href="{% url 'youtubers' %}">
+        Youtubers
+      </a>
+      <a class="hover:text-purple-300" href="{% url 'contact' %}">Contact</a>
     </nav>
     <a
       class="
