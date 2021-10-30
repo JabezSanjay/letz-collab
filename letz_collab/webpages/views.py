@@ -13,11 +13,14 @@ def home(request):
         '-created_at').filter(is_featured=True)
     latestYoutubers = Youtuber.objects.order_by(
         '-created_at').filter(is_featured=False)
+    usersSearch = Youtuber.objects.values_list(
+        'name', flat=True).distinct()
     data = {
         'homepageBanner': homepageBanner,
         'teamMembers': teamMembers,
         'featuredYoutubers': featuredYoutubers,
-        'latestYoutubers': latestYoutubers
+        'latestYoutubers': latestYoutubers,
+        'usersSearch': usersSearch,
     }
     return render(request, 'webpages/home.html', data)
 

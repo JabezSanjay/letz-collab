@@ -7,8 +7,17 @@ import urllib.parse as urlparse
 
 def youtubers(request):
     youtubersCollection = Youtuber.objects.order_by('-created_at')
+    countrySearch = Youtuber.objects.values_list(
+        'country', flat=True).distinct()
+    cameraModelSearch = Youtuber.objects.values_list(
+        'camera_model', flat=True).distinct()
+    categorySearch = Youtuber.objects.values_list(
+        'category', flat=True).distinct()
     data = {
-        'youtubersCollection': youtubersCollection
+        'youtubersCollection': youtubersCollection,
+        'countrySearch': countrySearch,
+        'cameraModelSearch': cameraModelSearch,
+        'categorySearch': categorySearch
     }
     return render(request, 'youtubers/youtubers.html', data)
 
@@ -17,22 +26,45 @@ def youtubers_detail(request, id):
     youtuberDetail = get_object_or_404(Youtuber, pk=id)
     videoId = video_id(youtuberDetail.videoUrl)
     youtuberDetail.videoUrl = videoId
+
     data = {
-        'youtuberDetail': youtuberDetail
+        'youtuberDetail': youtuberDetail,
     }
     return render(request, 'youtubers/youtubersDetail.html', data)
 
 
 def youtubers_search(request):
     youtubersSearch = Youtuber.objects.order_by('-created_at')
+    countrySearch = Youtuber.objects.values_list(
+        'country', flat=True).distinct()
+    cameraModelSearch = Youtuber.objects.values_list(
+        'camera_model', flat=True).distinct()
+    categorySearch = Youtuber.objects.values_list(
+        'category', flat=True).distinct()
 
     if 'keyword' in request.GET:
         keyword = request.GET['keyword']
         if keyword:
             youtubersSearch = youtubersSearch.filter(name__icontains=keyword)
+    if 'country' in request.GET:
+        country = request.GET['country']
+        if country:
+            youtubersSearch = youtubersSearch.filter(country__iexact=country)
+    if 'camera_model' in request.GET:
+        camera_model = request.GET['camera_model']
+        if camera_model:
+            youtubersSearch = youtubersSearch.filter(
+                camera_model__iexact=camera_model)
+    if 'category' in request.GET:
+        category = request.GET['category']
+        if category:
+            youtubersSearch = youtubersSearch.filter(category__iexact=category)
 
     data = {
-        'youtubersSearch': youtubersSearch
+        'youtubersSearch': youtubersSearch,
+        'countrySearch': countrySearch,
+        'cameraModelSearch': cameraModelSearch,
+        'categorySearch': categorySearch
     }
     return render(request, 'youtubers/youtubersSearch.html', data)
 
